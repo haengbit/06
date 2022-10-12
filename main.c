@@ -1,34 +1,43 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/* run this program using the console pauser or add your own getch, system("pause") or input loop */
-
-/*
-void square(int a)
+int combination(int num1, int num2, int num3)
 {
-	a = a * a;
-}
-
-int main()
-{
-	int a = 2;
-	square(a);
-	printf("a = %i\n", a);
-}
-*/
-
-int square(int a)
-{
-	return a*a;
-}
-
-int main(int argc, char *argv[]){
-	int a = 2;
+	int combi_res;
+	combi_res = factorial(num1) / (factorial(num2) * factorial(num3));
+	printf("the combination result is : %d", combi_res);
+	return(0);
 	
-	a = square(a);
-	printf("a = %i\n", a);
 }
 
+int factorial(int n)
+{
+	int res = 1;
+	int i;
+	for (i = 1; i <= n; i++)
+		res = res * i;
+	return res;
+}
+
+int get_integer()
+{
+	int num;
+	printf("input a number : ");
+	scanf("%d", &num);
+	return(num);
+}
+
+
+int main(int argc, char *argv[]) {
+	
+	int first_ingred, second_ingred, third_ingred;
+	
+	first_ingred = get_integer();
+	second_ingred = get_integer();
+	third_ingred = first_ingred - second_ingred;
+	
+	combination(first_ingred, second_ingred, third_ingred);
+}
 
 
 
